@@ -1,1 +1,1 @@
-Datebase tier of the full stack project for Datenbanken und Webtechnik course
+Datebase tier of the full stack project for Datenbanken und Webtechnik course.
