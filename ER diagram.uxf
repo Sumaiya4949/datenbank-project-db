@@ -1,17 +1,59 @@
-<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>520</x><y>230</y><w>230</w><h>190</h></coordinates><panel_attributes>User
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text>Space for diagram notesn</help_text><element><id>UMLClass</id><coordinates><x>750</x><y>0</y><w>230</w><h>190</h></coordinates><panel_attributes>User
 --
 
 _*id*_
 
 username
 
-password</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>590</y><w>230</w><h>190</h></coordinates><panel_attributes>Admin
+password
+
+forename
+
+surname</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>430</y><w>230</w><h>190</h></coordinates><panel_attributes>Admin
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>590</y><w>230</w><h>190</h></coordinates><panel_attributes>Teacher
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>750</x><y>590</y><w>230</w><h>190</h></coordinates><panel_attributes>Teacher
 --
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>580</y><w>230</w><h>190</h></coordinates><panel_attributes>Pupil
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1510</x><y>420</y><w>230</w><h>190</h></coordinates><panel_attributes>Pupil
 --
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>410</y><w>160</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-
-&lt;&lt;{ Mandatory, Disjoint }&gt;&gt;</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>510</y><w>440</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;420;70</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>510</y><w>450</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>430;10;10;80</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>850</x><y>180</y><w>160</w><h>430</h></coordinates><panel_attributes>lt=&lt;&lt;-
+&lt;&lt;{ Mandatory, Disjoint }&gt;&gt;</panel_attributes><additional_attributes>10;10;10;410</additional_attributes></element><element><id>Relation</id><coordinates><x>850</x><y>280</y><w>790</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;770;140</additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>280</y><w>780</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>760;10;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>940</x><y>920</y><w>230</w><h>190</h></coordinates><panel_attributes>Subject
+--
+
+id
+
+name 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>840</x><y>770</y><w>220</w><h>170</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=0..1
+teaches &gt;</panel_attributes><additional_attributes>10;10;200;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>940</y><w>230</w><h>190</h></coordinates><panel_attributes>Test
+--
+
+name
+
+date</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>630</y><w>210</w><h>70</h></coordinates><panel_attributes>--
+
+result</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>690</y><w>170</w><h>190</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>150;10;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1000</x><y>1310</y><w>230</w><h>190</h></coordinates><panel_attributes>Class
+--
+
+_*name*_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1060</x><y>1100</y><w>100</w><h>230</h></coordinates><panel_attributes>lt=-
+m1=1..*
+m2=0..*
+offers &gt;</panel_attributes><additional_attributes>60;210;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1200</x><y>600</y><w>380</w><h>730</h></coordinates><panel_attributes>lt=-
+m1=1..*
+m2=0..1
+assigns &gt;</panel_attributes><additional_attributes>350;10;10;710</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1450</x><y>1170</y><w>230</w><h>190</h></coordinates><panel_attributes>ArchivedSubject
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1160</x><y>1040</y><w>430</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-
+
+{ Optional }</panel_attributes><additional_attributes>10;10;410;130</additional_attributes></element><element><id>Relation</id><coordinates><x>1660</x><y>600</y><w>200</w><h>360</h></coordinates><panel_attributes>lt=-
+m1=0..*
+m2=0..*
+appearsIn &gt;</panel_attributes><additional_attributes>10;10;170;340</additional_attributes></element><element><id>Relation</id><coordinates><x>1160</x><y>950</y><w>690</w><h>90</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=0..*
+has &gt;</panel_attributes><additional_attributes>10;60;670;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2230</x><y>1000</y><w>230</w><h>190</h></coordinates><panel_attributes>ArchivedTestResult
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2050</x><y>940</y><w>200</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-
+
+{ Optional }</panel_attributes><additional_attributes>10;10;180;80</additional_attributes></element></diagram>
