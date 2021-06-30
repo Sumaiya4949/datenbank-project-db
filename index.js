@@ -200,9 +200,9 @@ async function populateDB(db) {
     },
     {
       id: uuid(),
-      username: "snape",
-      forename: "Severas",
-      surname: "Snape",
+      username: "luna",
+      forename: "Luna",
+      surname: "Lovegood",
       cname: "level2",
     },
   ]
@@ -216,6 +216,48 @@ async function populateDB(db) {
       await db.any(
         `INSERT INTO ASSIGNS VALUES ('${pupil.cname}', '${pupil.id}');`
       )
+    }
+  }
+
+  const teachers = [
+    {
+      id: uuid(),
+      username: "snape",
+      forename: "Severus",
+      surname: "Snape",
+      subjects: [
+        subjects.level1[0],
+        subjects.level1[1],
+        subjects.level2[0],
+        subjects.level2[1],
+      ],
+    },
+    {
+      id: uuid(),
+      username: "lupin",
+      forename: "Ramus",
+      surname: "Lupin",
+      subjects: [subjects.level1[2], subjects.level2[2]],
+    },
+    {
+      id: uuid(),
+      username: "dolores",
+      forename: "Dolores",
+      surname: "Umbridge",
+    },
+  ]
+
+  for (const teacher of teachers) {
+    await db.any(
+      `INSERT INTO TEACHER VALUES ('${teacher.id}', '${teacher.username}', '${MASTER_PASSWORD_HASH}', '${teacher.forename}', '${teacher.surname}');`
+    )
+
+    if (teacher.subjects) {
+      for (const mySubject of teacher.subjects) {
+        await db.any(
+          `INSERT INTO TEACHES VALUES ('${teacher.id}', '${mySubject.id}');`
+        )
+      }
     }
   }
 }
