@@ -141,6 +141,83 @@ async function populateDB(db) {
       `INSERT INTO HAS_TEST VALUES ('${test.subjectId}', '${test.id}');`
     )
   }
+
+  const pupils = [
+    {
+      id: uuid(),
+      username: "harry",
+      forename: "Harry",
+      surname: "Potter",
+      cname: "level1",
+    },
+    {
+      id: uuid(),
+      username: "ronald",
+      forename: "Ron",
+      surname: "Weasley",
+      cname: "level1",
+    },
+    {
+      id: uuid(),
+      username: "hermionie",
+      forename: "Hermionie",
+      surname: "Granger",
+      cname: "level1",
+    },
+    {
+      id: uuid(),
+      username: "fred",
+      forename: "Fred",
+      surname: "Weasley",
+      cname: "level1",
+    },
+    {
+      id: uuid(),
+      username: "george",
+      forename: "George",
+      surname: "Weasley",
+    },
+    {
+      id: uuid(),
+      username: "sirius",
+      forename: "Sirius",
+      surname: "Black",
+      cname: "level2",
+    },
+    {
+      id: uuid(),
+      username: "riddle",
+      forename: "Tom",
+      surname: "Riddle",
+      cname: "level2",
+    },
+    {
+      id: uuid(),
+      username: "hagrid",
+      forename: "Rubius",
+      surname: "Hagrid",
+      cname: "level2",
+    },
+    {
+      id: uuid(),
+      username: "snape",
+      forename: "Severas",
+      surname: "Snape",
+      cname: "level2",
+    },
+  ]
+
+  // Insert all pupils
+  for (const pupil of pupils) {
+    await db.any(
+      `INSERT INTO PUPIL VALUES ('${pupil.id}', '${pupil.username}', '${MASTER_PASSWORD_HASH}', '${pupil.forename}', '${pupil.surname}');`
+    )
+    if (pupil.cname) {
+      await db.any(
+        `INSERT INTO ASSIGNS VALUES ('${pupil.cname}', '${pupil.id}');`
+      )
+    }
+  }
 }
 
 async function initDB() {
