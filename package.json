@@ -4,6 +4,7 @@
   "description": "Datebase tier of the full stack project for Datenbanken und Webtechnik course.",
   "main": "index.js",
   "scripts": {
+    "start": "./start.sh && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/Sumaiya4949/datenbank-project-db#readme",
   "dependencies": {
+    "chalk": "^4.1.1",
     "pg-promise": "^10.10.2"
   }
 }

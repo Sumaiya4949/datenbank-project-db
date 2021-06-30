@@ -1,16 +1,25 @@
-const pgp = require("pg-promise")
+const pgp = require("pg-promise")()
 const fs = require("fs")
-const { exit } = require("process")
-
-// Wait for some time to let the db init
-await new Promise((resolve) => setTimeout(resolve, 5000))
-
-// Connect to postgres db container
-const db = pgp("postgres://0.0.0.0:9000")
+const chalk = require("chalk")
 
 async function initDB() {
+  // Wait for some time to let the db init
+  await new Promise((resolve) => setTimeout(resolve, 5000))
+
+  let db = null
+
+  const address = "localhost:9000"
+  const password = "Pass1234"
+  const username = "postgres"
+  const dbname = "datenbank_db"
+
   try {
+    // Connect to postgres db container
+    db = pgp(`postgres://${username}:${password}@${address}`)
+
     await db.connect()
+
+    console.log(chalk.green(`Success! Connected to postgres at ${address}`))
   } catch (err) {
     console.error("Failed to connect db!", err)
     return
@@ -19,6 +28,9 @@ async function initDB() {
   try {
     const allSqlQueries = fs.readFileSync("init-db.sql", { encoding: "utf-8" })
     await db.any(allSqlQueries)
+
+    console.log(chalk.green("Success! All tables created"))
+    process.exit()
   } catch (err) {
     console.error("Failed to execute SQL queries!", err)
   }

@@ -8,7 +8,7 @@ sudo docker rm datenbank-project-pgadmin
 
 echo "Creating new containers"
 
-sudo docker run -d --name datenbank-project-db -e POSTGRES_PASSWORD=Pass1234# -p 9000:5432 postgres
+sudo docker run -d --name datenbank-project-db -e POSTGRES_PASSWORD=Pass1234 -p 9000:5432 postgres
 
 echo "Success! Postgres container created"
 
