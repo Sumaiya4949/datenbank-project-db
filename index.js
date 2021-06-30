@@ -32,28 +32,34 @@ async function populateDB(db) {
       {
         id: uuid(),
         name: "Math",
+        // 3 test
       },
       {
         id: uuid(),
         name: "Physics",
+        // 1 test
       },
       {
         id: uuid(),
         name: "Chemistry",
+        // no test
       },
     ],
     level2: [
       {
         id: uuid(),
         name: "Math",
+        // 3 test
       },
       {
         id: uuid(),
         name: "Biology",
+        // 1 test
       },
       {
         id: uuid(),
         name: "History",
+        // no test
       },
     ],
   }
@@ -72,6 +78,68 @@ async function populateDB(db) {
       `INSERT INTO SUBJECT VALUES ('${subject.id}', '${subject.name}');`
     )
     await db.any(`INSERT INTO OFFERS VALUES ('level2', '${subject.id}');`)
+  }
+
+  // Create 8 tests
+  const tests = [
+    {
+      id: uuid(),
+      name: "Quiz",
+      date: "2021-06-30",
+      subjectId: subjects.level1[0].id,
+    },
+    {
+      id: uuid(),
+      name: "Final",
+      date: "2021-06-30",
+      subjectId: subjects.level1[0].id,
+    },
+    {
+      id: uuid(),
+      name: "Quiz",
+      date: "2021-06-30",
+      subjectId: subjects.level1[0].id,
+    },
+    {
+      id: uuid(),
+      name: "Final",
+      date: "2021-06-30",
+      subjectId: subjects.level1[1].id,
+    },
+    {
+      id: uuid(),
+      name: "Mock",
+      date: "2021-06-30",
+      subjectId: subjects.level2[0].id,
+    },
+    {
+      id: uuid(),
+      name: "Quiz",
+      date: "2021-06-30",
+      subjectId: subjects.level2[0].id,
+    },
+    {
+      id: uuid(),
+      name: "Final",
+      date: "2021-06-30",
+      subjectId: subjects.level2[0].id,
+    },
+    {
+      id: uuid(),
+      name: "Final",
+      date: "2021-06-30",
+      subjectId: subjects.level2[1].id,
+    },
+  ]
+
+  // Insert all tests
+  for (const test of tests) {
+    await db.any(
+      `INSERT INTO TEST VALUES ('${test.id}', '${test.name}', '${test.date}');`
+    )
+    await db.any(
+      `INSERT INTO HAS_TEST VALUES ('${test.subjectId}', '${test.id}');`
+    )
   }
 }
 
