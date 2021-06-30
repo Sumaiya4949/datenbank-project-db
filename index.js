@@ -1,6 +1,7 @@
 const pgp = require("pg-promise")()
 const fs = require("fs")
 const chalk = require("chalk")
+const { v4: uuid } = require("uuid")
 
 async function initDB() {
   // Wait for some time to let the db init
@@ -26,7 +27,7 @@ async function initDB() {
   }
 
   try {
-    const allSqlQueries = fs.readFileSync("init-db.sql", { encoding: "utf-8" })
+    const allSqlQueries = fs.readFileSync("tables.sql", { encoding: "utf-8" })
     await db.any(allSqlQueries)
 
     console.log(chalk.green("Success! All tables created"))

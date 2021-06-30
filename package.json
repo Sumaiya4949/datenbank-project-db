@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Sumaiya4949/datenbank-project-db#readme",
   "dependencies": {
     "chalk": "^4.1.1",
-    "pg-promise": "^10.10.2"
+    "pg-promise": "^10.10.2",
+    "uuid": "^8.3.2"
   }
 }
