@@ -149,6 +149,8 @@ async function populateDB(db) {
       forename: "Harry",
       surname: "Potter",
       cname: "level1",
+
+      appearsIn: [tests[0].id, tests[1].id],
     },
     {
       id: uuid(),
@@ -156,6 +158,8 @@ async function populateDB(db) {
       forename: "Ron",
       surname: "Weasley",
       cname: "level1",
+
+      appearsIn: [tests[2].id, tests[3].id],
     },
     {
       id: uuid(),
@@ -163,6 +167,8 @@ async function populateDB(db) {
       forename: "Hermionie",
       surname: "Granger",
       cname: "level1",
+
+      appearsIn: [tests[4].id, tests[5].id],
     },
     {
       id: uuid(),
@@ -170,12 +176,16 @@ async function populateDB(db) {
       forename: "Fred",
       surname: "Weasley",
       cname: "level1",
+
+      appearsIn: [tests[6].id, tests[7].id],
     },
     {
       id: uuid(),
       username: "george",
       forename: "George",
       surname: "Weasley",
+
+      appearsIn: [tests[0].id, tests[1].id],
     },
     {
       id: uuid(),
@@ -183,6 +193,8 @@ async function populateDB(db) {
       forename: "Sirius",
       surname: "Black",
       cname: "level2",
+
+      appearsIn: [tests[2].id, tests[3].id],
     },
     {
       id: uuid(),
@@ -190,6 +202,8 @@ async function populateDB(db) {
       forename: "Tom",
       surname: "Riddle",
       cname: "level2",
+
+      appearsIn: [tests[4].id, tests[5].id],
     },
     {
       id: uuid(),
@@ -197,6 +211,8 @@ async function populateDB(db) {
       forename: "Rubius",
       surname: "Hagrid",
       cname: "level2",
+
+      appearsIn: [tests[6].id, tests[7].id],
     },
     {
       id: uuid(),
@@ -204,6 +220,8 @@ async function populateDB(db) {
       forename: "Luna",
       surname: "Lovegood",
       cname: "level2",
+
+      appearsIn: [tests[0].id, tests[1].id],
     },
   ]
 
@@ -215,6 +233,14 @@ async function populateDB(db) {
     if (pupil.cname) {
       await db.any(
         `INSERT INTO ASSIGNS VALUES ('${pupil.cname}', '${pupil.id}');`
+      )
+    }
+
+    for (const testId of pupil.appearsIn) {
+      await db.any(
+        `INSERT INTO APPEARS_IN VALUES ('${pupil.id}', '${testId}', '${
+          Math.floor(Math.random() * 100) + 1
+        }');`
       )
     }
   }
