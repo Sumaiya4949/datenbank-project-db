@@ -10,7 +10,7 @@ function getPasswordHash(password) {
   return hash.digest("hex")
 }
 
-const MASTER_PASSWORD = "123456"
+const MASTER_PASSWORD = "Pass1234"
 const MASTER_PASSWORD_HASH = getPasswordHash(MASTER_PASSWORD)
 
 async function populateDB(db) {
@@ -150,7 +150,7 @@ async function populateDB(db) {
       surname: "Potter",
       cname: "level1",
 
-      appearsIn: [tests[0].id, tests[1].id],
+      appearsIn: [tests[0].id, tests[1].id, tests[2].id, tests[3].id],
     },
     {
       id: uuid(),
